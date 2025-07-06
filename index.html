@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BS Nursing at AMA Education System | Launch Your Healthcare Career</title>
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  
+  <!-- Tailwind CSS CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  
+  <!-- GSAP for Animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <!-- Custom Styles -->
+  <style>
+    :root {
+      --health-blue: #0066cc;
+      --light-blue: #0088cc;
+      --dark-blue: #004d99;
+      --nursing-gold: #FFD700;
+      --gradient-start: #0066cc;
+      --gradient-end: #0088cc;
+    }
+
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 400;
+      src: url(https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2) format('woff2');
+    }
+
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 700;
+      src: url(https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuFuYAZ9hiA.woff2) format('woff2');
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      background-color: #f8fafc;
+      color: #1e293b;
+      overflow-x: hidden;
+    }
+
+    .section-header::after {
+      content: '';
+      display: block;
+      margin: 0.5rem auto 0;
+      width: 4rem;
+      height: 4px;
+      background: linear-gradient(to right, var(--health-blue), var(--nursing-gold));
+      border-radius: 3px;
+    }
+
+    .frosted {
+      backdrop-filter: blur(12px);
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid rgba(200, 200, 200, 0.15);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(70px);
+      opacity: 0.2;
+      z-index: -1;
+    }
+
+    .blob-1 {
+      top: -100px;
+      left: -100px;
+      width: 300px;
+      height: 300px;
+      background: var(--health-blue);
+    }
+
+    .blob-2 {
+      bottom: -100px;
+      right: -100px;
+      width: 300px;
+      height: 300px;
+      background: var(--light-blue);
+    }
+
+    .blob-3 {
+      top: 50%;
+      left: 20%;
+      width: 200px;
+      height: 200px;
+      background: var(--nursing-gold);
+    }
+
+    .animate-fade {
+      animation: fadeInUp 1.2s ease-out both;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .text-health-blue {
+      color: var(--health-blue);
+    }
+
+    .bg-health-blue {
+      background-color: var(--health-blue);
+    }
+
+    .gradient-bg {
+      background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    }
+
+    .card-hover {
+      transition: all 0.3s ease;
+      transform: translateY(0);
+    }
+
+    .card-hover:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    }
+
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .stat-card {
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .stat-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 25px 50px -12px rgba(0, 102, 204, 0.25);
+    }
+
+    .testimonial-card {
+      border-left: 4px solid var(--health-blue);
+    }
+
+    .feature-icon {
+      width: 70px;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(0, 102, 204, 0.1), rgba(255, 215, 0, 0.1));
+      margin-bottom: 1.5rem;
+      color: var(--health-blue);
+      font-size: 28px;
+    }
+
+    .timeline {
+      position: relative;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .timeline::after {
+      content: '';
+      position: absolute;
+      width: 6px;
+      background-color: var(--health-blue);
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -3px;
+    }
+
+    .timeline-item {
+      padding: 10px 40px;
+      position: relative;
+      width: 50%;
+      box-sizing: border-box;
+    }
+
+    .timeline-item::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      right: -10px;
+      background-color: white;
+      border: 4px solid var(--health-blue);
+      top: 15px;
+      border-radius: 50%;
+      z-index: 1;
+    }
+
+    .left {
+      left: 0;
+    }
+
+    .right {
+      left: 50%;
+    }
+
+    .right::after {
+      left: -10px;
+    }
+
+    @media screen and (max-width: 768px) {
+      .timeline::after {
+        left: 31px;
+      }
+
+      .timeline-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+      }
+
+      .timeline-item::after {
+        left: 15px;
+      }
+
+      .right {
+        left: 0%;
+      }
+    }
+  </style>
+</head>
+
+<body class="text-gray-900 bg-gradient-to-br from-gray-50 to-gray-100">
+
+<!-- Navigation -->
+<header class="sticky top-0 z-50 bg-white shadow-md">
+  <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+    <div class="flex items-center space-x-3">
+      <img src="logo.webp" alt="AMA Logo" class="h-10">
+      <span class="text-xl font-bold text-[var(--health-blue)]">AMA Education System</span>
+    </div>
+    <nav class="hidden md:flex items-center gap-8 font-medium">
+      <a href="#hero" style="color: #1f2937; transition: all 0.3s ease; text-decoration: none;" onmouseover="this.style.color='var(--health-blue)'; this.style.fontWeight='600'" onmouseout="this.style.color='#1f2937'; this.style.fontWeight='400'">Home</a>
+      <a href="#certifications" style="color: #1f2937; transition: all 0.3s ease; text-decoration: none;" onmouseover="this.style.color='var(--health-blue)'; this.style.fontWeight='600'" onmouseout="this.style.color='#1f2937'; this.style.fontWeight='400'">Certifications</a>
+      <a href="#features" style="color: #1f2937; transition: all 0.3s ease; text-decoration: none;" onmouseover="this.style.color='var(--health-blue)'; this.style.fontWeight='600'" onmouseout="this.style.color='#1f2937'; this.style.fontWeight='400'">Features</a>
+      <a href="#career" style="color: #1f2937; transition: all 0.3s ease; text-decoration: none;" onmouseover="this.style.color='var(--health-blue)'; this.style.fontWeight='600'" onmouseout="this.style.color='#1f2937'; this.style.fontWeight='400'">Career Paths</a>
+      <a href="#profiler" style="color: #1f2937; transition: all 0.3s ease; text-decoration: none;" onmouseover="this.style.color='var(--health-blue)'; this.style.fontWeight='600'" onmouseout="this.style.color='#1f2937'; this.style.fontWeight='400'">Profiler</a>
+      <a href="https://inquire.amaes.edu.ph/inquiry-form/" target="_blank" style="background-color: var(--health-blue); color: white; padding: 0.625rem 1.25rem; border-radius: 0.375rem; font-weight: 600; transition: all 0.3s ease; text-decoration: none;" onmouseover="this.style.backgroundColor='var(--dark-blue)'" onmouseout="this.style.backgroundColor='var(--health-blue)'">Inquire</a>
+    </nav>
+    <button id="mobile-menu" class="md:hidden text-gray-800">
+      <i class="fas fa-bars text-2xl"></i>
+    </button>
+  </div>
+  
+  <!-- Mobile Menu -->
+  <div id="mobile-nav" class="hidden absolute top-full left-0 w-full bg-white shadow-lg py-4 z-50">
+    <div class="flex flex-col items-center space-y-4">
+      <a href="#hero" style="color: #1f2937; font-weight: 500; text-decoration: none; transition: color 0.3s ease;" onmouseover="this.style.color='var(--health-blue)'" onmouseout="this.style.color='#1f2937'">Home</a>
+      <a href="#certifications" style="color: #1f2937; font-weight: 500; text-decoration: none; transition: color 0.3s ease;" onmouseover="this.style.color='var(--health-blue)'" onmouseout="this.style.color='#1f2937'">Certifications</a>
+      <a href="#features" style="color: #1f2937; font-weight: 500; text-decoration: none; transition: color 0.3s ease;" onmouseover="this.style.color='var(--health-blue)'" onmouseout="this.style.color='#1f2937'">Features</a>
+      <a href="#career" style="color: #1f2937; font-weight: 500; text-decoration: none; transition: color 0.3s ease;" onmouseover="this.style.color='var(--health-blue)'" onmouseout="this.style.color='#1f2937'">Career Paths</a>
+      <a href="#profiler" style="color: #1f2937; font-weight: 500; text-decoration: none; transition: color 0.3s ease;" onmouseover="this.style.color='var(--health-blue)'" onmouseout="this.style.color='#1f2937'">Profiler</a>
+      <a href="https://inquire.amaes.edu.ph/inquiry-form/" target="_blank" style="background-color: var(--health-blue); color: white; padding: 0.625rem 1.25rem; border-radius: 0.375rem; font-weight: 500; text-decoration: none;">Inquire</a>
+    </div>
+  </div>
+</header>
+
+<!-- Hero -->
+<section id="hero" class="relative min-h-screen flex items-center justify-center px-6 py-16 overflow-hidden">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+
+  <div class="container max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+    <div class="z-10 animate-fade">
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight">
+        <span class="text-gray-800">Launch Your Healthcare Career with</span><br>
+        <span style="background-clip: text; -webkit-background-clip: text; color: transparent; background-image: linear-gradient(to right, #0066cc, #0088cc);">BS Nursing at AMA</span>
+      </h1>
+      <p class="text-lg md:text-xl text-gray-700 mb-8 max-w-2xl">
+        Earn international nursing certifications while completing your degree. Join the most comprehensive nursing program in the Philippines and graduate ready to excel in the global healthcare industry.
+      </p>
+      <div class="flex flex-wrap gap-4">
+        <a href="https://inquire.amaes.edu.ph/inquiry-form/" class="gradient-bg text-white font-bold px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transition transform hover:scale-[1.03] flex items-center gap-2">
+          <i class="fas fa-graduation-cap"></i> Inquire & Enroll Now
+        </a>
+        <a href="http://52.13.121.18:8080/" target="_blank" class="border-2 border-[var(--health-blue)] text-[var(--health-blue)] font-bold px-8 py-4 rounded-lg hover:bg-[var(--health-blue)] hover:text-white shadow-sm transition transform hover:scale-[1.03] flex items-center gap-2">
+          <i class="fas fa-brain"></i> Use Career Profiler
+        </a>
+      </div>
+      <div class="mt-8 flex flex-wrap gap-4">
+        <div class="flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm">
+          <i class="fas fa-check-circle text-green-500"></i>
+          <span>No entrance exam</span>
+        </div>
+        <div class="flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm">
+          <i class="fas fa-calendar-alt text-blue-500"></i>
+          <span>Flexible learning</span>
+        </div>
+        <div class="flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm">
+          <i class="fas fa-stethoscope text-purple-500"></i>
+          <span>Hands-on clinical training</span>
+        </div>
+        <div class="flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm">
+          <i class="fas fa-globe text-orange-500"></i>
+          <span>Global opportunities</span>
+        </div>
+        <div class="flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm">
+          <i class="fas fa-certificate text-yellow-500"></i>
+          <span>Professional certifications</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="z-10 animate-fade hidden lg:block">
+      <div class="relative">
+        <div class="absolute -top-8 -right-8 w-full h-full rounded-2xl border-4 border-[var(--health-blue)]"></div>
+        <div class="relative rounded-2xl overflow-hidden shadow-2xl transform rotate-3">
+          <div class="bg-gray-200 border-2 border-dashed rounded-xl w-full aspect-[3/4]"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Stats Section -->
+<section class="py-20 text-white relative overflow-hidden" style="background: linear-gradient(135deg, #004d99, #0066cc);">
+  <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"20\" height=\"20\" viewBox=\"0 0 20 20\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"%23ffffff\" fill-opacity=\"0.05\" fill-rule=\"evenodd\"%3E%3Ccircle cx=\"3\" cy=\"3\" r=\"3\"/%3E%3C/g%3E%3C/svg%3E')] opacity-30"></div>
+  
+  <div class="max-w-7xl mx-auto px-6 relative">
+    <h2 class="text-center text-3xl md:text-4xl font-bold mb-12">
+      <i class="fas fa-chart-line mr-3"></i>Our Impact in Healthcare
+    </h2>
+    
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div class="stat-card bg-white/10 p-8 rounded-2xl text-center backdrop-blur-md hover:bg-white/20 transform hover:-translate-y-2 transition-all duration-300 border border-white/10">
+        <i class="fas fa-briefcase text-3xl mb-4 text-nursing-gold"></i>
+        <div class="text-4xl md:text-5xl font-bold mb-3" data-count="95">0%</div>
+        <div class="text-base md:text-lg font-medium">Employment Rate</div>
+        <p class="text-sm text-white/80 mt-2">Within 6 months of graduation</p>
+      </div>
+      
+      <div class="stat-card bg-white/10 p-8 rounded-2xl text-center backdrop-blur-md hover:bg-white/20 transform hover:-translate-y-2 transition-all duration-300 border border-white/10">
+        <i class="fas fa-certificate text-3xl mb-4 text-nursing-gold"></i>
+        <div class="text-4xl md:text-5xl font-bold mb-3" data-count="8">0+</div>
+        <div class="text-base md:text-lg font-medium">Professional Certifications</div>
+        <p class="text-sm text-white/80 mt-2">Globally recognized credentials</p>
+      </div>
+      
+      <div class="stat-card bg-white/10 p-8 rounded-2xl text-center backdrop-blur-md hover:bg-white/20 transform hover:-translate-y-2 transition-all duration-300 border border-white/10">
+        <i class="fas fa-user-graduate text-3xl mb-4 text-nursing-gold"></i>
+        <div class="text-4xl md:text-4xl font-bold mb-3" data-count="35000">0+</div>
+        <div class="text-base md:text-lg font-medium">Nursing Graduates</div>
+        <p class="text-sm text-white/80 mt-2">Working globally in healthcare</p>
+      </div>
+      
+      <div class="stat-card bg-white/10 p-8 rounded-2xl text-center backdrop-blur-md hover:bg-white/20 transform hover:-translate-y-2 transition-all duration-300 border border-white/10">
+        <i class="fas fa-hospital text-3xl mb-4 text-nursing-gold"></i>
+        <div class="text-4xl md:text-5xl font-bold mb-3" data-count="120">0+</div>
+        <div class="text-base md:text-lg font-medium">Hospital Partnerships</div>
+        <p class="text-sm text-white/80 mt-2">Including top healthcare institutions</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Animate count up when stats are in view
+    const stats = document.querySelectorAll('[data-count]');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const target = entry.target;
+          const countTo = parseInt(target.getAttribute('data-count'));
+          let count = 0;
+          const duration = 2000;
+          const increment = countTo / (duration / 16);
+          
+          function updateCount() {
+            count += increment;
+            if (count < countTo) {
+              target.textContent = Math.floor(count) + (target.textContent.includes('%') ? '%' : '+');
+              requestAnimationFrame(updateCount);
+            } else {
+              target.textContent = countTo + (target.textContent.includes('%') ? '%' : '+');
+            }
+          }
+          
+          updateCount();
+          observer.unobserve(target);
+        }
+      });
+    }, {threshold: 0.5});
+
+    stats.forEach(stat => observer.observe(stat));
+  </script>
+</section>
+
+<!-- Certifications Section -->
+<section id="certifications" class="relative py-24 px-6 text-center bg-gray-50 text-gray-800 overflow-hidden">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="max-w-7xl mx-auto">
+    <h2 class="text-3xl md:text-4xl font-bold section-header text-health-blue mb-6">Certifications You Graduate With</h2>
+    <p class="text-lg text-gray-700 max-w-3xl mx-auto mb-16">Professional certifications that enhance your nursing career. AMA's BS Nursing includes built-in credentials employers value.</p>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto text-left relative z-10">
+      <!-- Nursing Licensure Card -->
+      <div class="frosted p-8 rounded-2xl card-hover">
+        <div class="flex items-center mb-4">
+          <div class="bg-[var(--health-blue)]/10 p-3 rounded-lg mr-4">
+            <i class="fas fa-file-medical text-2xl text-[var(--health-blue)]"></i>
+          </div>
+          <h3 class="font-bold text-xl text-[var(--health-blue)]">Nursing Licensure</h3>
+        </div>
+        <ul class="space-y-2 pl-4">
+          <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> Philippine Nursing Licensure Exam (PNLE)</li>
+          <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> NCLEX-RN Preparation</li>
+          <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> IELTS/TOEFL Certification</li>
+          <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> CGFNS Certification</li>
+        </ul>
+      </div>
+      
+      <!-- Clinical Skills Card -->
+      <div class="frosted p-8 rounded-2xl card-hover">
+        <div class="flex items-center mb-4">
+          <div class="bg-[var(--health-blue)]/10 p-3 rounded-lg mr-4">
+            <i class="fas fa-stethoscope text-2xl text-[var(--health-blue)]"></i>
+          </div>
+          <h3 class="font-bold text-xl text-[var(--health-blue)]">Clinical Skills</h3>
+        </div>
+        <ul class="space-y-2 pl-4">
+          <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> Basic Life Support (BLS)</li>
+          <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> Advanced Cardiac Life Support (ACLS)</li>
+          <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> Pediatric Advanced Life Support (PALS)</li>
+          <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> IV Therapy Certification</li>
+        </ul>
+      </div>
+      
+      <!-- Specialized Nursing Card -->
+      <div class="frosted p-8 rounded-2xl card-hover">
+        <div class="flex items-center mb-4">
+          <div class="bg-[var(--health-blue)]/10 p-3 rounded-lg mr-4">
+            <i class="fas fa-user-md text-2xl text-[var(--health-blue)]"></i>
+          </div>
+          <h3 class="font-bold text-xl text-[var(--health-blue)]">Specialized Nursing</h3>
+        </div>
+        <ul class="space-y-2 pl-4">
+          <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> Oncology Nursing Certification</li>
+          <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> Critical Care Nursing</li>
+          <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> Emergency Nursing Certification</li>
+          <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> Maternal-Child Health Nursing</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Features Section -->
+<section id="features" class="py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <h2 class="text-3xl md:text-4xl font-bold text-center text-health-blue mb-4">Why Choose AMA's Nursing Program?</h2>
+    <p class="text-lg text-center text-gray-700 max-w-3xl mx-auto mb-16">Experience the difference with our patient-centered approach to nursing education</p>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+      <!-- Feature 1 -->
+      <div class="feature-card p-8 rounded-2xl bg-gradient-to-br from-gray-50 to-white border border-gray-200 hover:border-[var(--health-blue)]/30 transition-all">
+        <div class="feature-icon mx-auto">
+          <i class="fas fa-hospital-user"></i>
+        </div>
+        <h3 class="text-xl font-bold text-center mb-3 text-[var(--health-blue)]">Clinical Excellence</h3>
+        <p class="text-gray-700 text-center">Extensive clinical rotations at top hospitals provide real-world patient care experience from year one.</p>
+      </div>
+      
+      <!-- Feature 2 -->
+      <div class="feature-card p-8 rounded-2xl bg-gradient-to-br from-gray-50 to-white border border-gray-200 hover:border-[var(--health-blue)]/30 transition-all">
+        <div class="feature-icon mx-auto">
+          <i class="fas fa-globe-americas"></i>
+        </div>
+        <h3 class="text-xl font-bold text-center mb-3 text-[var(--health-blue)]">Global Opportunities</h3>
+        <p class="text-gray-700 text-center">Preparation for international nursing careers with NCLEX training and global placement support.</p>
+      </div>
+      
+      <!-- Feature 3 -->
+      <div class="feature-card p-8 rounded-2xl bg-gradient-to-br from-gray-50 to-white border border-gray-200 hover:border-[var(--health-blue)]/30 transition-all">
+        <div class="feature-icon mx-auto">
+          <i class="fas fa-procedures"></i>
+        </div>
+        <h3 class="text-xl font-bold text-center mb-3 text-[var(--health-blue)]">Simulation Labs</h3>
+        <p class="text-gray-700 text-center">State-of-the-art simulation centers with high-fidelity mannequins replicate real healthcare scenarios.</p>
+      </div>
+      
+      <!-- Feature 4 -->
+      <div class="feature-card p-8 rounded-2xl bg-gradient-to-br from-gray-50 to-white border border-gray-200 hover:border-[var(--health-blue)]/30 transition-all">
+        <div class="feature-icon mx-auto">
+          <i class="fas fa-hands-helping"></i>
+        </div>
+        <h3 class="text-xl font-bold text-center mb-3 text-[var(--health-blue)]">Mentorship Program</h3>
+        <p class="text-gray-700 text-center">Personal guidance from experienced nurse educators throughout your academic journey.</p>
+      </div>
+      
+      <!-- Feature 5 -->
+      <div class="feature-card p-8 rounded-2xl bg-gradient-to-br from-gray-50 to-white border border-gray-200 hover:border-[var(--health-blue)]/30 transition-all">
+        <div class="feature-icon mx-auto">
+          <i class="fas fa-book-medical"></i>
+        </div>
+        <h3 class="text-xl font-bold text-center mb-3 text-[var(--health-blue)]">Evidence-Based Curriculum</h3>
+        <p class="text-gray-700 text-center">Curriculum based on latest healthcare research and best practices in patient care.</p>
+      </div>
+      
+      <!-- Feature 6 -->
+      <div class="feature-card p-8 rounded-2xl bg-gradient-to-br from-gray-50 to-white border border-gray-200 hover:border-[var(--health-blue)]/30 transition-all">
+        <div class="feature-icon mx-auto">
+          <i class="fas fa-user-friends"></i>
+        </div>
+        <h3 class="text-xl font-bold text-center mb-3 text-[var(--health-blue)]">Community Engagement</h3>
+        <p class="text-gray-700 text-center">Opportunities to serve in community health programs and medical missions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Career Paths Section -->
+<section id="career" class="py-24 bg-gradient-to-br from-gray-50 to-gray-100">
+  <div class="max-w-7xl mx-auto px-6">
+    <h2 class="text-3xl md:text-4xl font-bold text-center text-health-blue mb-4">Your Nursing Career Paths</h2>
+    <p class="text-lg text-center text-gray-700 max-w-3xl mx-auto mb-16">Graduate with the skills and certifications needed for these rewarding healthcare roles</p>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      
+      <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
+        <div class="gradient-bg p-6">
+          <h3 class="text-xl font-bold text-white">Staff Nurse</h3>
+          <p class="text-white/90">Average Salary: ₱25,000 - ₱60,000</p>
+        </div>
+        <div class="p-6">
+          <ul class="space-y-2">
+            <li class="flex items-start"><i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i> Provide direct patient care</li>
+            <li class="flex items-start"><i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i> Administer medications</li>
+            <li class="flex items-start"><i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i> Monitor patient progress</li>
+          </ul>
+          <div class="mt-4">
+            <span class="inline-flex items-center px-4 py-2 mr-2 mb-2 text-sm font-medium transition-all duration-200 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-50 hover:scale-105">
+              <i class="fas fa-file-medical mr-2 text-[var(--health-blue)]"></i>
+              PNLE Passer
+            </span>
+            <span class="inline-flex items-center px-4 py-2 mr-2 mb-2 text-sm font-medium transition-all duration-200 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-50 hover:scale-105">
+              <i class="fas fa-heartbeat mr-2 text-[var(--health-blue)]"></i>
+              BLS Certified
+            </span>
+            <span class="inline-flex items-center px-4 py-2 mr-2 mb-2 text-sm font-medium transition-all duration-200 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-50 hover:scale-105">
+              <i class="fas fa-procedures mr-2 text-[var(--health-blue)]"></i>
+              Clinical Skills
+            </span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
+        <div class="gradient-bg p-6">
+          <h3 class="text-xl font-bold text-white">Nurse Educator</h3>
+          <p class="text-white/90">Average Salary: ₱40,000 - ₱80,000</p>
+        </div>
+        <div class="p-6">
+          <ul class="space-y-2">
+            <li class="flex items-start"><i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i> Develop nursing curriculum</li>
+            <li class="flex items-start"><i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i> Mentor nursing students</li>
+            <li class="flex items-start"><i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i> Conduct healthcare research</li>
+          </ul>
+          <div class="mt-4">
+            <span class="inline-flex items-center px-4 py-2 mr-2 mb-2 text-sm font-medium transition-all duration-200 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-50 hover:scale-105">
+              <i class="fas fa-graduation-cap mr-2 text-[var(--health-blue)]"></i>
+              MSN Degree
+            </span>
+            <span class="inline-flex items-center px-4 py-2 mr-2 mb-2 text-sm font-medium transition-all duration-200 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-50 hover:scale-105">
+              <i class="fas fa-chalkboard-teacher mr-2 text-[var(--health-blue)]"></i>
+              Teaching Certification
+            </span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
+        <div class="gradient-bg p-6">
+          <h3 class="text-xl font-bold text-white">ICU Nurse</h3>
+          <p class="text-white/90">Average Salary: ₱35,000 - ₱70,000</p>
+        </div>
+        <div class="p-6">
+          <ul class="space-y-2">
+            <li class="flex items-start"><i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i> Monitor critical patients</li>
+            <li class="flex items-start"><i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i> Operate life support equipment</li>
+            <li class="flex items-start"><i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i> Coordinate with medical teams</li>
+          </ul>
+          <div class="mt-4">
+            <span class="inline-flex items-center px-4 py-2 mr-2 mb-2 text-sm font-medium transition-all duration-200 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-50 hover:scale-105">
+              <i class="fas fa-heartbeat mr-2 text-[var(--health-blue)]"></i>
+              ACLS Certification
+            </span>
+            <span class="inline-flex items-center px-4 py-2 mr-2 mb-2 text-sm font-medium transition-all duration-200 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-50 hover:scale-105">
+              <i class="fas fa-lungs mr-2 text-[var(--health-blue)]"></i>
+              Critical Care Nursing
+            </span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
+        <div class="gradient-bg p-6">
+          <h3 class="text-xl font-bold text-white">Pediatric Nurse</h3>
+          <p class="text-white/90">Average Salary: ₱30,000 - ₱60,000</p>
+        </div>
+        <div class="p-6">
+          <ul class="space-y-2">
+            <li class="flex items-start"><i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i> Care for infants and children</li>
+            <li class="flex items-start"><i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i> Administer pediatric medications</li>
+            <li class="flex items-start"><i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i> Support child development</li>
+          </ul>
+          <div class="mt-4">
+            <span class="inline-flex items-center px-4 py-2 mr-2 mb-2 text-sm font-medium transition-all duration-200 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-50 hover:scale-105">
+              <i class="fas fa-baby mr-2 text-[var(--health-blue)]"></i>
+              PALS Certification
+            </span>
+            <span class="inline-flex items-center px-4 py-2 mr-2 mb-2 text-sm font-medium transition-all duration-200 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-50 hover:scale-105">
+              <i class="fas fa-child mr-2 text-[var(--health-blue)]"></i>
+              Pediatric Nursing
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
+        <div class="gradient-bg p-6">
+          <h3 class="text-xl font-bold text-white">Oncology Nurse</h3>
+          <p class="text-white/90">Average Salary: ₱35,000 - ₱75,000</p>
+        </div>
+        <div class="p-6">
+          <ul class="space-y-2">
+            <li class="flex items-start"><i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i> Care for cancer patients</li>
+            <li class="flex items-start"><i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i> Administer chemotherapy</li>
+            <li class="flex items-start"><i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i> Provide palliative care</li>
+          </ul>
+          <div class="mt-4">
+            <span class="inline-flex items-center px-4 py-2 mr-2 mb-2 text-sm font-medium transition-all duration-200 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-50 hover:scale-105">
+              <i class="fas fa-pills mr-2 text-[var(--health-blue)]"></i>
+              Chemotherapy Certification
+            </span>
+            <span class="inline-flex items-center px-4 py-2 mr-2 mb-2 text-sm font-medium transition-all duration-200 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-50 hover:scale-105">
+              <i class="fas fa-hospital-symbol mr-2 text-[var(--health-blue)]"></i>
+              Oncology Nursing
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
+        <div class="gradient-bg p-6">
+          <h3 class="text-xl font-bold text-white">Nurse Researcher</h3>
+          <p class="text-white/90">Average Salary: ₱45,000 - ₱90,000</p>
+        </div>
+        <div class="p-6">
+          <ul class="space-y-2">
+            <li class="flex items-start"><i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i> Design healthcare studies</li>
+            <li class="flex items-start"><i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i> Analyze clinical data</li>
+            <li class="flex items-start"><i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i> Publish research findings</li>
+          </ul>
+          <div class="mt-4">
+            <span class="inline-flex items-center px-4 py-2 mr-2 mb-2 text-sm font-medium transition-all duration-200 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-50 hover:scale-105">
+              <i class="fas fa-microscope mr-2 text-[var(--health-blue)]"></i>
+              Research Methods
+            </span>
+            <span class="inline-flex items-center px-4 py-2 mr-2 mb-2 text-sm font-medium transition-all duration-200 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-50 hover:scale-105">
+              <i class="fas fa-chart-line mr-2 text-[var(--health-blue)]"></i>
+              Data Analysis
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
+        <div class="gradient-bg p-6">
+          <h3 class="text-xl font-bold text-white">Public Health Nurse</h3>
+          <p class="text-white/90">Average Salary: ₱30,000 - ₱65,000</p>
+        </div>
+        <div class="p-6">
+          <ul class="space-y-2">
+            <li class="flex items-start"><i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i> Community health education</li>
+            <li class="flex items-start"><i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i> Disease prevention programs</li>
+            <li class="flex items-start"><i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i> Health policy development</li>
+          </ul>
+          <div class="mt-4">
+            <span class="inline-flex items-center px-4 py-2 mr-2 mb-2 text-sm font-medium transition-all duration-200 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-50 hover:scale-105">
+              <i class="fas fa-users mr-2 text-[var(--health-blue)]"></i>
+              Community Health
+            </span>
+            <span class="inline-flex items-center px-4 py-2 mr-2 mb-2 text-sm font-medium transition-all duration-200 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-50 hover:scale-105">
+              <i class="fas fa-clipboard-list mr-2 text-[var(--health-blue)]"></i>
+              Epidemiology
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <h2 class="text-3xl md:text-4xl font-bold text-center text-health-blue mb-4">Success Stories</h2>
+    <p class="text-lg text-center text-gray-700 max-w-3xl mx-auto mb-16">Hear from our graduates who are now making a difference in healthcare</p>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+      <!-- Testimonial 1 -->
+      <div class="testimonial-card bg-gray-50 p-8 rounded-xl">
+        <div class="flex items-center mb-6">
+          <div>
+            <h4 class="font-bold text-lg">Maria Santos</h4>
+            <p class="text-gray-600">ICU Nurse, Singapore General Hospital</p>
+          </div>
+        </div>
+        <p class="text-gray-700 italic">"AMA's nursing program prepared me for the challenges of critical care nursing. The clinical rotations and simulation labs gave me the confidence to excel in high-pressure environments."</p>
+        <div class="mt-4 text-yellow-400">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </div>
+      </div>
+      
+      <!-- Testimonial 2 -->
+      <div class="testimonial-card bg-gray-50 p-8 rounded-xl">
+        <div class="flex items-center mb-6">
+          <div>
+            <h4 class="font-bold text-lg">James Reyes</h4>
+            <p class="text-gray-600">Nurse Educator, AMA University</p>
+          </div>
+        </div>
+        <p class="text-gray-700 italic">"The mentorship I received at AMA inspired me to become an educator. The program's emphasis on evidence-based practice continues to guide my teaching approach."</p>
+        <div class="mt-4 text-yellow-400">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </div>
+      </div>
+      
+      <!-- Testimonial 3 -->
+      <div class="testimonial-card bg-gray-50 p-8 rounded-xl">
+        <div class="flex items-center mb-6">
+          <div>
+            <h4 class="font-bold text-lg">Andrea Cruz</h4>
+            <p class="text-gray-600">Pediatric Nurse, Children's Medical Center</p>
+          </div>
+        </div>
+        <p class="text-gray-700 italic">"My pediatric nursing certification from AMA opened doors to my dream career. The specialized training in child development was invaluable."</p>
+        <div class="mt-4 text-yellow-400">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </div>
+      </div>
+
+      <!-- Testimonial 4 -->
+      <div class="testimonial-card bg-gray-50 p-8 rounded-xl">
+        <div class="flex items-center mb-6">
+          <div>
+            <h4 class="font-bold text-lg">Robert Tan</h4>
+            <p class="text-gray-600">Nursing Supervisor, US Healthcare System</p>
+          </div>
+        </div>
+        <p class="text-gray-700 italic">"AMA's NCLEX preparation program gave me the edge I needed to succeed in the US healthcare system. The global perspective I gained was crucial for my international career."</p>
+        <div class="mt-4 text-yellow-400">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Profiler CTA -->
+<section id="profiler" class="py-20 px-6 bg-gradient-to-r from-[var(--dark-blue)] to-[var(--health-blue)] text-center">
+  <div class="max-w-4xl mx-auto">
+    <h2 class="text-3xl md:text-4xl font-bold text-health-blue mb-6">Not Sure If Nursing Is Right for You?</h2>
+    <p class="text-white/90 text-lg max-w-2xl mx-auto mb-10">Use our Nursing Career Profiler to discover if a career in healthcare aligns with your strengths, interests, and personality.</p>
+    
+    <div class="flex flex-col sm:flex-row justify-center gap-4">
+      <a href="http://52.13.121.18:8080/" target="_blank" 
+         style="position: relative; 
+                overflow: hidden;
+                background: linear-gradient(to right, rgba(255, 255, 255, 0.9), rgba(0, 102, 204, 0.05));
+                backdrop-filter: blur(12px);
+                color: #0066cc;
+                padding: 1.25rem 2.5rem;
+                border-radius: 0.75rem;
+                font-size: 1.125rem;
+                font-weight: 700;
+                box-shadow: 0 10px 15px -3px rgba(0, 102, 204, 0.1);
+                transition: all 500ms;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 0.75rem;
+                border: 2px solid rgba(0, 102, 204, 0.2);"
+         onmouseover="this.style.transform='translateY(-8px) scale(1.05)'; 
+                      this.style.boxShadow='0 20px 25px -5px rgba(0, 102, 204, 0.25)';
+                      this.style.borderColor='#0066cc';"
+         onmouseout="this.style.transform='translateY(0) scale(1)';
+                     this.style.boxShadow='0 10px 15px -3px rgba(0, 102, 204, 0.1)';
+                     this.style.borderColor='rgba(0, 102, 204, 0.2)';">
+        <span style="position: absolute;
+                     inset: 0;
+                     background: linear-gradient(to right, rgba(0, 102, 204, 0.1), rgba(255, 255, 255, 0.1));
+                     transform: skewX(-12deg);
+                     transition: transform 700ms;"
+              onmouseover="this.style.transform='skewX(12deg)'"
+              onmouseout="this.style.transform='skewX(-12deg)'"></span>
+        <span style="position: absolute;
+                     inset: -4px;
+                     background: linear-gradient(to right, #0066cc, #ffffff);
+                     filter: blur(4px);
+                     opacity: 0.25;
+                     transition: opacity 500ms;"
+              onmouseover="this.style.opacity='0.5'"
+              onmouseout="this.style.opacity='0.25'"></span>
+        <i class="fas fa-brain" 
+           style="font-size: 1.25rem;
+                  transition: transform 300ms;
+                  animation: pulse 2s infinite;"
+           onmouseover="this.style.transform='rotate(12deg)'"
+           onmouseout="this.style.transform='rotate(0deg)'"></i>
+        <span style="position: relative;">Discover Your Nursing Career Path</span>
+        <i class="fas fa-arrow-right" 
+           style="margin-left: 0.5rem;
+                  opacity: 0;
+                  transform: translateX(8px);
+                  transition: all 300ms;"
+           onmouseover="this.style.opacity='1'; this.style.transform='translateX(16px)'"
+           onmouseout="this.style.opacity='0'; this.style.transform='translateX(8px)'"></i>
+      </a>
+      
+      <a href="https://inquire.amaes.edu.ph/inquiry-form/" 
+         style="position: relative; overflow: hidden; background: linear-gradient(to right, rgba(0, 102, 204, 0.9), rgba(0, 77, 153, 0.9)); padding: 1.25rem 2.5rem; border-radius: 0.75rem; font-size: 1.125rem; font-weight: 700; box-shadow: 0 4px 6px -1px rgba(0, 102, 204, 0.1); display: flex; align-items: center; justify-content: center; gap: 0.75rem; transition: all 500ms; transform: translateY(0); cursor: pointer; backdrop-filter: blur(8px);"
+         onmouseover="this.style.transform='translateY(-8px) scale(1.05)'; this.style.boxShadow='0 20px 25px -5px rgba(0, 102, 204, 0.25)'"
+         onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 4px 6px -1px rgba(0, 102, 204, 0.1)'">
+        <span style="position: absolute; inset: 0; background: linear-gradient(to right, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1)); transform: skewX(-12deg); transition: transform 700ms;"
+              onmouseover="this.style.transform='skewX(12deg)'"
+              onmouseout="this.style.transform='skewX(-12deg)'"></span>
+        <span style="position: absolute; inset: -4px; background: linear-gradient(to right, rgba(255, 255, 255, 0.3), rgba(0, 102, 204, 0.8)); filter: blur(4px); opacity: 0.2; transition: opacity 500ms;"
+              onmouseover="this.style.opacity='0.35'"
+              onmouseout="this.style.opacity='0.2'"></span>
+        <i class="fas fa-graduation-cap" style="font-size: 1.25rem; color: white; text-shadow: 0 1px 2px rgba(0,0,0,0.1); transition: transform 300ms;"
+           onmouseover="this.style.transform='scale(1.1)'"
+           onmouseout="this.style.transform='scale(1)'"></i>
+        <span style="position: relative; color: white; text-shadow: 0 1px 2px rgba(0,0,0,0.1);">Start Your Nursing Journey Today</span>
+        <i class="fas fa-arrow-right" style="color: white; text-shadow: 0 1px 2px rgba(0,0,0,0.1); margin-left: 0.5rem; opacity: 0; transform: translateX(8px); transition: all 300ms;"
+           onmouseover="this.style.opacity='1'; this.style.transform='translateX(16px)'"
+           onmouseout="this.style.opacity='0'; this.style.transform='translateX(8px)'"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="py-24 bg-gray-50">
+  <div class="max-w-4xl mx-auto px-6">
+    <h2 class="text-3xl md:text-4xl font-bold text-center text-health-blue mb-4">Frequently Asked Questions</h2>
+    <p class="text-lg text-center text-gray-700 max-w-3xl mx-auto mb-16">Get answers to common questions about our Nursing program</p>
+    
+    <div class="space-y-6">
+      <!-- FAQ 1 -->
+      <div class="bg-white rounded-xl shadow-md overflow-hidden">
+        <button class="faq-question w-full text-left p-6 font-bold text-lg flex justify-between items-center">
+          <span>How long does it take to complete the BS Nursing program?</span>
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer p-6 pt-0 text-gray-700 hidden">
+          The BS Nursing program typically takes 4 years to complete. This includes both classroom instruction and extensive clinical rotations at partner hospitals.
+        </div>
+      </div>
+      
+      <!-- FAQ 2 -->
+      <div class="bg-white rounded-xl shadow-md overflow-hidden">
+        <button class="faq-question w-full text-left p-6 font-bold text-lg flex justify-between items-center">
+          <span>What clinical experience will I gain?</span>
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer p-6 pt-0 text-gray-700 hidden">
+          Students complete over 2,000 hours of clinical rotations across various specialties including medical-surgical, pediatrics, obstetrics, mental health, and community health nursing.
+        </div>
+      </div>
+      
+      <!-- FAQ 3 -->
+      <div class="bg-white rounded-xl shadow-md overflow-hidden">
+        <button class="faq-question w-full text-left p-6 font-bold text-lg flex justify-between items-center">
+          <span>What kind of job placement support do you offer?</span>
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer p-6 pt-0 text-gray-700 hidden">
+          Our Career Services department offers comprehensive support including resume workshops, interview preparation, career fairs, and direct connections to our hospital partners. We have a 95% job placement rate within 6 months of graduation.
+        </div>
+      </div>
+      
+      <!-- FAQ 4 -->
+      <div class="bg-white rounded-xl shadow-md overflow-hidden">
+        <button class="faq-question w-full text-left p-6 font-bold text-lg flex justify-between items-center">
+          <span>Do you prepare students for international nursing careers?</span>
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer p-6 pt-0 text-gray-700 hidden">
+          Yes! Our program includes NCLEX-RN preparation, IELTS/TOEFL training, and guidance on international nursing requirements for countries like the US, UK, Canada, and Australia.
+        </div>
+      </div>
+      
+      <!-- FAQ 5 -->
+      <div class="bg-white rounded-xl shadow-md overflow-hidden">
+        <button class="faq-question w-full text-left p-6 font-bold text-lg flex justify-between items-center">
+          <span>What are the admission requirements?</span>
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer p-6 pt-0 text-gray-700 hidden">
+          Admission requires a high school diploma with good grades in science subjects. No entrance exam is needed. International students must provide additional documentation.
+        </div>
+      </div>
+      
+      <!-- FAQ 6 -->
+      <div class="bg-white rounded-xl shadow-md overflow-hidden">
+        <button class="faq-question w-full text-left p-6 font-bold text-lg flex justify-between items-center">
+          <span>Are scholarships available?</span>
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer p-6 pt-0 text-gray-700 hidden">
+          Yes! We offer merit-based scholarships, financial aid, and payment plans. Over 25% of our nursing students receive some form of financial assistance.
+        </div>
+      </div>
+      
+      <!-- FAQ 7 -->
+      <div class="bg-white rounded-xl shadow-md overflow-hidden">
+        <button class="faq-question w-full text-left p-6 font-bold text-lg flex justify-between items-center">
+          <span>What makes AMA's Nursing program unique?</span>
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer p-6 pt-0 text-gray-700 hidden">
+          Our program stands out with its extensive clinical partnerships, simulation lab facilities, and international preparation. You'll graduate with both a degree and multiple certifications.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Final CTA -->
+<section class="py-20 bg-gradient-to-br from-[var(--dark-blue)] to-[var(--health-blue)] text-white text-center relative overflow-hidden">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  
+  <div class="max-w-4xl mx-auto px-6 relative z-10">
+    <h2 class="text-3xl md:text-4xl font-bold mb-6 text-health-blue">Start Your Journey to a Nursing Career Today</h2>
+    <p class="text-xl max-w-2xl mx-auto mb-10 text-gray-700">Join thousands of AMA nursing graduates who are now making a difference in healthcare worldwide.</p>
+    
+    <div class="flex flex-wrap justify-center gap-6">
+      <a href="https://inquire.amaes.edu.ph/inquiry-form/" 
+         style="
+           background: linear-gradient(135deg, #ffffff 0%, #f8f8f8 100%);
+           color: var(--health-blue);
+           padding: 16px 32px;
+           border-radius: 50px;
+           font-size: 1.2rem;
+           font-weight: 700;
+           display: flex;
+           align-items: center;
+           gap: 12px;
+           box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+           transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+           position: relative;
+           overflow: hidden;
+           animation: pulse 2s infinite;
+         "
+         onmouseover="this.style.transform='scale(1.05) translateY(-5px)'; this.style.boxShadow='0 15px 30px rgba(0,0,0,0.15)'"
+         onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 10px 20px rgba(0,0,0,0.1)'">
+        <i class="fas fa-file-alt" style="font-size: 1.4rem;"></i>
+        <span style="position: relative; z-index: 1;">Request Information</span>
+        <div style="position: absolute; top: 0; left: -100%; width: 200%; height: 100%; background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.8) 50%, transparent 100%); transform: skewX(-25deg); transition: 0.5s; animation: shine 3s infinite;"></div>
+      </a>
+
+      <a href="https://inquire.amaes.edu.ph/inquiry-form/"
+         style="
+           background: linear-gradient(135deg, var(--health-blue) 0%, var(--dark-blue) 50%, #001a33 100%);
+           color: white;
+           padding: 18px 36px;
+           border-radius: 50px;
+           font-size: 1.25rem;
+           font-weight: 700;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           gap: 14px;
+           box-shadow: 0 10px 30px rgba(0, 102, 204, 0.4),
+                      0 4px 8px rgba(0, 0, 0, 0.1);
+           transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+           position: relative;
+           overflow: hidden;
+           animation: bounce 2.5s ease-in-out infinite;
+           backdrop-filter: blur(5px);
+           border: 1px solid rgba(255, 255, 255, 0.1);
+           text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+         "
+         onmouseover="this.style.transform='scale(1.05) translateY(-5px)'; this.style.boxShadow='0 15px 35px rgba(255,255,255,0.4)'"
+         onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 10px 25px rgba(255,255,255,0.3)'">
+        <i class="fas fa-user-graduate" style="font-size: 1.4rem;"></i>
+        <span style="position: relative; z-index: 1;">Apply Now</span>
+        <div style="position: absolute; top: 0; left: -100%; width: 200%; height: 100%; background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.8) 50%, transparent 100%); transform: skewX(-25deg); transition: 0.5s; animation: shine 3s infinite;"></div>
+      </a>
+
+      <style>
+        @keyframes pulse {
+          0% { transform: scale(1); }
+          50% { transform: scale(1.03); }
+          100% { transform: scale(1); }
+        }
+
+        @keyframes bounce {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-10px); }
+        }
+
+        @keyframes shine {
+          0% { left: -100%; }
+          100% { left: 100%; }
+        }
+      </style>
+    </div>
+
+    <div class="mt-12 flex flex-wrap justify-center gap-8">
+      <!-- Facebook -->
+      <a href="https://www.facebook.com/amaeducsystem" class="hover:opacity-80 transition">
+        <i class="fab fa-facebook text-2xl" style="color: #4267B2 !important;"></i>
+      </a>
+      
+      <!-- Tiktok -->
+      <a href="https://www.tiktok.com/@amaeducsystem" class="hover:opacity-80 transition">
+        <i class="fab fa-tiktok text-2xl" style="color: #000000 !important;"></i>
+      </a>
+      
+      <!-- Instagram -->
+      <a href="https://www.instagram.com/amaeducsystem/" class="hover:opacity-80 transition">
+        <i class="fab fa-instagram text-2xl" style="color: #C13584 !important;"></i>
+      </a>
+      
+      <!-- LinkedIn -->
+      <a href="https://www.linkedin.com/school/ama-university/" class="hover:opacity-80 transition">
+        <i class="fab fa-linkedin text-2xl" style="color: #2867B2 !important;"></i>
+      </a>
+      
+      <!-- YouTube -->
+      <a href="https://www.youtube.com/@amaeducsystem" class="hover:opacity-80 transition">
+        <i class="fab fa-youtube text-2xl" style="color: #FF0000 !important;"></i>
+      </a>
+    </div>
+    
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-900 text-gray-300 py-12">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div>
+        <div class="flex items-center space-x-3 mb-4">
+          <img src="logo.webp" alt="AMA Logo" class="h-10">
+          <span class="text-lg font-bold text-white">AMA Education System</span>
+        </div>
+        <p class="text-sm mb-4">Pioneering quality healthcare education in the Philippines since 1980.</p>
+        <p class="text-sm">CHED Recognized • TESDA Accredited • ISO Certified</p>
+      </div>
+      
+      <div>
+        <h4 class="text-white font-bold mb-4">Programs</h4>
+        <ul class="space-y-2">
+          <li><a href="http://amaes.edu.ph/" class="hover:text-white transition">BS Nursing</a></li>
+          <li><a href="http://amaes.edu.ph/" class="hover:text-white transition">BS Medical Technology</a></li>
+          <li><a href="http://amaes.edu.ph/" class="hover:text-white transition">BS Pharmacy</a></li>
+          <li><a href="http://amaes.edu.ph/" class="hover:text-white transition">BS Physical Therapy</a></li>
+          <li><a href="http://amaes.edu.ph/" class="hover:text-white transition">Short Healthcare Courses</a></li>
+        </ul>
+      </div>
+      
+      <div>
+        <h4 class="text-white font-bold mb-4">Quick Links</h4>
+        <ul class="space-y-2">
+          <li><a href="http://amaes.edu.ph/" class="hover:text-white transition">Admissions</a></li>
+          <li><a href="http://amaes.edu.ph/" class="hover:text-white transition">Tuition & Fees</a></li>
+          <li><a href="http://amaes.edu.ph/" class="hover:text-white transition">Scholarships</a></li>
+          <li><a href="http://amaes.edu.ph/" class="hover:text-white transition">Campus Locations</a></li>
+          <li><a href="http://amaes.edu.ph/" class="hover:text-white transition">Contact Us</a></li>
+        </ul>
+      </div>
+      
+      <div>
+        <h4 class="text-white font-bold mb-4">Contact Information</h4>
+        <ul class="space-y-3">
+          <li class="flex items-start">
+            <i class="fas fa-map-marker-alt mt-1 mr-3"></i>
+            <span>AMA Building, 59 Panay Avenue, Quezon City</span>
+          </li>
+          <li class="flex items-start">
+            <a href="tel:+6328737-5545" class="flex items-center hover:text-[var(--health-blue)] transition-colors">
+              <i class="fas fa-phone-alt mt-1 mr-3"></i>
+              <span>(02) 8737-5545</span>
+            </a>
+          </li>
+          <li class="flex items-start">
+            <a href="mailto:info@amaes.edu.ph" class="flex items-center hover:text-[var(--health-blue)] transition-colors">
+              <i class="fas fa-envelope mt-1 mr-3"></i>
+              <span>info@amaes.edu.ph</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="border-t border-gray-800 mt-12 pt-8 text-sm text-center">
+      <p>© 2025 AMA Education System. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- GSAP Scroll Animations -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu');
+    const mobileNav = document.getElementById('mobile-nav');
+    
+    mobileMenuBtn.addEventListener('click', function() {
+      mobileNav.classList.toggle('hidden');
+    });
+    
+    // FAQ accordion
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    
+    faqQuestions.forEach(question => {
+      question.addEventListener('click', function() {
+        const answer = this.nextElementSibling;
+        const icon = this.querySelector('i');
+        
+        if (answer.classList.contains('hidden')) {
+          answer.classList.remove('hidden');
+          icon.classList.remove('fa-chevron-down');
+          icon.classList.add('fa-chevron-up');
+        } else {
+          answer.classList.add('hidden');
+          icon.classList.remove('fa-chevron-up');
+          icon.classList.add('fa-chevron-down');
+        }
+      });
+    });
+    
+    // Initialize GSAP animations
+    gsap.registerPlugin(ScrollTrigger);
+    
+    // Animate elements on scroll
+    gsap.utils.toArray('.animate-on-scroll').forEach(element => {
+      gsap.fromTo(element, {
+        opacity: 0,
+        y: 40
+      }, {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        scrollTrigger: {
+          trigger: element,
+          start: 'top 85%',
+          toggleActions: 'play none none none'
+        },
+        ease: 'power2.out'
+      });
+    });
+    
+    // Animate cards on hover
+    gsap.utils.toArray('.card-hover').forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        gsap.to(card, {
+          y: -10,
+          duration: 0.3,
+          ease: 'power2.out'
+        });
+      });
+      
+      card.addEventListener('mouseleave', () => {
+        gsap.to(card, {
+          y: 0,
+          duration: 0.3,
+          ease: 'power2.out'
+        });
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
